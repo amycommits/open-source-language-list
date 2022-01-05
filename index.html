@@ -1,0 +1,63 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h1>Open Source Language List</h1>
+    <table>
+      <thead id="language-headers">
+      </thead>
+      <tbody id="language-content">
+
+      </tbody>
+    </table>
+  </body>
+</html>
+<script type="text/javascript" language="javascript" src="languages.js"></script> 
+<script>
+  const LANGUAGE_HEADERS = [
+    'Name',
+    'Language Family',
+    'Target Name',
+    'Dialect',
+    'Script Type',
+    'Has Romaniztion',
+    'Has Spaces in Sentences',
+    'iso_639_1',
+    'iso_639_2t',
+    'iso_639_2b',
+    'iso_639_3'
+
+  ]
+  const LANGUAGE_KEYS = [
+      "name",
+      "language_family",
+      "target_name",
+      "dialect",
+      "script_type",
+      "has_romanization",
+      "has_spaces_in_sentences",
+      "iso_639_1",
+      "iso_639_2t",
+      "iso_639_2b",
+      "iso_639_3"
+  ]
+  // table headers section
+  const thead = document.getElementById('language-headers')
+  LANGUAGE_HEADERS.forEach((header) => {
+    const th = document.createElement('th')
+    th.innerHTML = header
+    thead.append(th)
+  })
+  // table content section
+  const languages = results.body
+  languages.forEach((language) => {
+    const tr = document.createElement('tr')
+    LANGUAGE_KEYS.forEach((key) => {
+      const td = document.createElement('td')
+      td.innerHTML = language[key]
+      tr.append(td)
+    })
+    document.getElementById('language-content').append(tr)
+  })
+</script>
